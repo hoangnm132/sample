@@ -31,3 +31,38 @@
 
 en:
   hello: "Hello world"
+
+  layouts:
+    application:
+      title: "Ruby on Rails tutorial sample app"
+
+    footer:
+      tutorial: "Ruby on Rails tutorial"
+      author : "Michael Hartl "
+      about: "About "
+      contact: "Contact "
+      news: "News "
+      the: "The "
+      by: " by"
+
+  static_page:
+
+    about: 
+      title_about: "About"
+      tutorial: "Ruby on Rails Tutorial "
+
+    home: 
+      title_home: "Home"
+      tutorial: "Ruby on Rails Tutorial "
+
+    help: 
+      title_help: "Help"
+      tutorial: "Ruby on Rails Tutorial "
+
+
+    contact: 
+      title_contact: "Contact"
+      tutorial: "Ruby on Rails Tutorial "
+          
+
+
