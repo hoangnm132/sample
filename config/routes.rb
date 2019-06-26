@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/new'
   	get 'users/new'
   	root 'static_page#home'
   	get  "/help", to: "static_page#help"
