@@ -32,6 +32,9 @@
 en:
   hello: "Hello world"
 
+  users:
+    title_users : "Users"
+
   layouts:
     application:
       title: "Ruby on Rails tutorial sample app"
