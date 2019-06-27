@@ -39,7 +39,12 @@ en:
       create_account: "Create my account"
     create:
       welcome: "Welcome to the Sample App!"
+    show:
+      notfound: "User isn't existed"
 
+  shared:
+    error_messages:
+      form: "The form contains"
 
   layouts:
 
