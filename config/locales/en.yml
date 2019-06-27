@@ -34,10 +34,12 @@ en:
 
   users:
     new:
-     title_users: "Users"
-     sign_up: "Sign up now"
+      title_users: "Users"
+      sign_up: "Sign up now"
+      create_account: "Create my account"
     create:
-     welcome: "Welcome to the Sample App!"
+      welcome: "Welcome to the Sample App!"
+
 
   layouts:
 
@@ -55,22 +57,22 @@ en:
 
   static_page:
 
-    about: 
+    about:
       title_about: "About"
       tutorial: "Ruby on Rails Tutorial "
 
-    home: 
+    home:
       title_home: "Home"
       tutorial: "Ruby on Rails Tutorial "
 
-    help: 
+    help:
       title_help: "Help"
       tutorial: "Ruby on Rails Tutorial "
 
 
-    contact: 
+    contact:
       title_contact: "Contact"
       tutorial: "Ruby on Rails Tutorial "
-          
+
 
 
