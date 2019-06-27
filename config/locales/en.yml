@@ -35,6 +35,8 @@ en:
   users:
     new:
      title_users: "Users"
+    create:
+     welcome: "Welcome to the Sample App!"
 
   layouts:
 
