@@ -37,6 +37,7 @@ en:
       title_users: "Users"
       sign_up: "Sign up now"
       create_account: "Create my account"
+      submit: "Create my account"
     create:
       welcome: "Welcome to the Sample App!"
     show:
