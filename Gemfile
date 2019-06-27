@@ -12,6 +12,16 @@ gem "puma", "~> 3.11"
 
 gem "sass-rails", "~> 5.0"
 
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "bootstrap-sass", "3.3.7"
+
+gem "i18n", "~> 1.6"
+
+gem "bcrypt",         "3.1.12"
+
+gem "config"
+
 gem "uglifier", ">= 1.3.0"
 
 gem "coffee-rails", "~> 4.2"
@@ -45,12 +55,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "bootstrap-sass", "3.3.7"
-
-gem "i18n", "~> 1.6"
-
-gem 'bcrypt',         '3.1.12'
-
-gem "config"
