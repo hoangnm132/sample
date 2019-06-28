@@ -41,7 +41,7 @@ en:
     create:
       welcome: "Welcome to the Sample App!"
     show:
-      notfound: "User isn't existed"
+      notfound: "User does not exist"
 
   shared:
     error_messages:
@@ -61,6 +61,15 @@ en:
       the: "The "
       by: " by"
 
+  sessions:
+    new:
+      title_login: "Login"
+      log_in: "Log in"
+      new_user?: "New user ?"
+      sign_up_now: "Sign up now!"
+    create:
+      login_failed: "Login failed"
+
   static_page:
 
     about:
@@ -79,6 +88,4 @@ en:
     contact:
       title_contact: "Contact"
       tutorial: "Ruby on Rails Tutorial "
-
-
 
