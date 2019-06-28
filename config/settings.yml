@@ -1,0 +1,7 @@
+railstutorial: "https://www.railstutorial.org/"
+gravatar_link: "https://secure.gravatar.com/avatar/"
+author: "http://www.michaelhartl.com/"
+gravatar_size: 80
+max_name_length: 50
+max_email_length: 50
+min_password_length: 6
