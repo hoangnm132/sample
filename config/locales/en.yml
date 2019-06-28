@@ -61,6 +61,9 @@ en:
       the: "The "
       by: " by"
 
+    header:
+      account: "Account"
+
   sessions:
     new:
       title_login: "Login"

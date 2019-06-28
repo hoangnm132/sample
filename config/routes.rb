@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get "sessions/new"
   root "static_page#home"
 
+  get "sessions/new"
   get "users/new"
   get "users/new"
   get "/help", to: "static_page#help"
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
 
   delete "/logout", to: "sessions#destroy"
-
 
   resources :users
 end
