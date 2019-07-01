@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       log_in user
       redirect_to user
-
     else
       flash[:danger] = t ".login_failed"
       render :new
