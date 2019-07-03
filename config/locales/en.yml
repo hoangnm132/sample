@@ -31,24 +31,46 @@
 
 en:
   hello: "Hello world"
+  please_login: "Please log in"
+  not_permited: "You don't have permission"
 
   users:
+    user:
+      confirm: "Are you sure?"
+      delete: "Delete"
+
     new:
+      title_signup: "Sign up"
       title_users: "Users"
       sign_up: "Sign up now"
       create_account: "Create my account"
-      submit: "Create my account"
+
     create:
       welcome: "Welcome to the Sample App!"
+
     show:
       notfound: "User does not exist"
+
+    edit:
+      title_edit: "Edit"
+      update_profile: "Update your profile"
+      change: "Change"
+
+    update:
+      successed: "Successed"
+
+    form:
+      submit: "Submit"
+
+    index:
+      title_index: "All users"
+      all_users: "All users"
 
   shared:
     error_messages:
       form: "The form contains"
 
   layouts:
-
     application:
       title: "Ruby on Rails tutorial sample app"
 
@@ -79,7 +101,6 @@ en:
       login_failed: "Login failed"
 
   static_page:
-
     about:
       title_about: "About"
       tutorial: "Ruby on Rails Tutorial "
@@ -91,7 +112,6 @@ en:
     help:
       title_help: "Help"
       tutorial: "Ruby on Rails Tutorial "
-
 
     contact:
       title_contact: "Contact"
