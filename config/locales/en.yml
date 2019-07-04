@@ -33,6 +33,19 @@ en:
   hello: "Hello world"
   please_login: "Please log in"
   not_permited: "You don't have permission"
+  email_sent_for_password_reset: "Email sent with password reset instructions"
+  email_not_found: "Email address not found"
+
+  password_resets:
+    password_reset:
+      password_reset_expired: "Password reset expired"
+      password_has_been_reset: "Password has been reset"
+      cant_be_empty: "Cant be empty"
+
+  user_mailer:
+    account_activation:
+      account_activated: "Account activated!"
+      invalid_activation: "Invalid activation"
 
   users:
     user:
@@ -47,6 +60,7 @@ en:
 
     create:
       welcome: "Welcome to the Sample App!"
+      please_check_email: "Please check your email"
 
     show:
       notfound: "User does not exist"
@@ -65,6 +79,9 @@ en:
     index:
       title_index: "All users"
       all_users: "All users"
+
+    destroy:
+      deleted: "User deleted"
 
   shared:
     error_messages:
