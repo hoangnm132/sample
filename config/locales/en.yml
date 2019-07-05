@@ -34,7 +34,18 @@ en:
 
   users:
     new:
-     title_users: "Users"
+      title_users: "Users"
+      sign_up: "Sign up now"
+      create_account: "Create my account"
+      submit: "Create my account"
+    create:
+      welcome: "Welcome to the Sample App!"
+    show:
+      notfound: "User does not exist"
+
+  shared:
+    error_messages:
+      form: "The form contains"
 
   layouts:
 
@@ -50,24 +61,39 @@ en:
       the: "The "
       by: " by"
 
+    header:
+      account: "Account"
+      home: "Home"
+      help: "Help"
+      login: "Login"
+      logout: "Logout"
+
+  sessions:
+    new:
+      title_login: "Login"
+      log_in: "Log in"
+      new_user?: "New user ?"
+      sign_up_now: "Sign up now!"
+      remember_me: "Remember me"
+    create:
+      login_failed: "Login failed"
+
   static_page:
 
-    about: 
+    about:
       title_about: "About"
       tutorial: "Ruby on Rails Tutorial "
 
-    home: 
+    home:
       title_home: "Home"
       tutorial: "Ruby on Rails Tutorial "
 
-    help: 
+    help:
       title_help: "Help"
       tutorial: "Ruby on Rails Tutorial "
 
 
-    contact: 
+    contact:
       title_contact: "Contact"
       tutorial: "Ruby on Rails Tutorial "
-          
-
 
