@@ -48,7 +48,7 @@ BCrypt::Password.create(string, cost: cost)
   end
 
   def activate
-    update_columns(activated: FILL_IN, activated_at: FILL_IN)
+    update(activated: FILL_IN, activated_at: FILL_IN)
 
   end
 
@@ -58,8 +58,8 @@ BCrypt::Password.create(string, cost: cost)
 
   def create_reset_digest
     self.reset_token = User.new_token
-    update :reset_digest,  User.digest(reset_token)
-    update :reset_sent_at, Time.zone.now
+    update (reset_digest:  User.digest(reset_token))
+    update (reset_sent_at: Time.zone.now)
   end
 
   def send_password_reset_email
@@ -67,6 +67,6 @@ BCrypt::Password.create(string, cost: cost)
   end
 
   def password_reset_expired?
-    reset_sent_at < 2.hours.ago
+    reset_sent_at < Setting.time_to_expired.hours.ago
   end
 end

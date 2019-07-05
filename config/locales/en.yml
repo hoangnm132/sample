@@ -35,6 +35,7 @@ en:
   not_permited: "You don't have permission"
   email_sent_for_password_reset: "Email sent with password reset instructions"
   email_not_found: "Email address not found"
+  user_not_found: "User not found"
 
   password_resets:
     password_reset:
@@ -106,6 +107,7 @@ en:
       help: "Help"
       login: "Login"
       logout: "Logout"
+      users: "Users"
 
   sessions:
     new:
@@ -116,6 +118,8 @@ en:
       remember_me: "Remember me"
     create:
       login_failed: "Login failed"
+      check_email: "Check your email for the activation link."
+      account_not_activated: "Account not activated"
 
   static_page:
     about:

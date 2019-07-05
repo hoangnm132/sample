@@ -9,10 +9,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by id: params[:id]
+    load_users
     return if @user
-    flash[:error] = t (".notfound")
-    redirect_to root_path redirect_to root_url and return unless FILL_IN
+      flash[:error] = t (".notfound")
+      redirect_to root_path
   end
 
   def create
@@ -29,17 +29,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find_by id: params[:id]
-  end
-
-  def load_users
-    @user = User.find_by id: params[:id]
-  end
+  def edit; end
 
   def update
-    @user = User.find_by id: params[:id]
-    if @user.update(user_params)
+    if @user.update user_params
       flash[:success] = t ".successed"
       redirect_to @user
     else
@@ -48,8 +41,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.where(activated: FILL_IN).page(page: params[:page]).per(5)
-
+     @users = User.all.page(params[:page]).per(5)
   end
 
   def admin_user
@@ -67,8 +59,12 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
+  def load_users
+    @user = User.find_by id: params[:id]
+  end
+
   def logged_in_user
-    unless logged_in?
+    return if logged_in?
       store_location
       flash[:danger] = t "please_login"
       redirect_to login_url
@@ -76,7 +72,7 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    @user = User.find_by id: params[:id]
+    load_users
     return if @user == current_user
       redirect_to root_url
       flash[:danger] = t "not_permited"
