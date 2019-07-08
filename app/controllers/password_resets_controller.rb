@@ -23,26 +23,20 @@ class PasswordResetsController < ApplicationController
   private
     def get_user
       @user = User.find_by(email: params[:email])
-      if @user
-        return
-      else
+      return if @user
         redirect_to root_path
         flash[:error] = t("user_not_found")
     end
 
     def valid_user
-      # unless (@user&activated?&authenticated?(:reset, params[:id]))
-      #   redirect_to root_url
-      # end
-      return if condition
-
-      end
+      return if (@user&activated?&authenticated?(:reset, params[:id]))
+        redirect_to root_url
     end
 
     def update
     if params[:user][:password].empty?
       @user.errors.add(:password,t("cant_be_empty"))
-      render 'edit'
+      render :edit
     elsif @user.update_attributes(user_params)
       log_in @user
       flash[:success] = t("password_has_been_reset")
@@ -57,7 +51,7 @@ class PasswordResetsController < ApplicationController
 
     def check_expiration
       return unless @user.password_reset_expired?
-        flash[:danger] = t("password_reset_expired")
+      flash[:danger] = t("password_reset_expired")
       end
     end
 end

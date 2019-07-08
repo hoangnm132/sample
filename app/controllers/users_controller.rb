@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i(index edit update destroy)
+  before_action :logged_in_user, except: %i(index edit update destroy)
   before_action :load_users, only: %i(edit show update delete)
-  before_action :correct_user,  only: %i(edit update)
-  before_action :admin_user, only: %i(destroy)
+  before_action :correct_user, only: %i(edit update)
+  before_action :admin_user, except: %i(destroy)
 
   def new
     @user = User.new
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
 
   def index
-     @users = User.all.page(params[:page]).per(5)
+    @users = User.all.page(params[:page]).per(5)
   end
 
   def admin_user
@@ -49,9 +49,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    load_users
+    if @user.destroy
     flash[:success] = t ".deleted"
     redirect_to users_url
+  else
+    flash[:error] = t ".delete_failed"
+    redirect_to users_url
+  end
   end
 
   private
@@ -68,11 +73,10 @@ class UsersController < ApplicationController
       store_location
       flash[:danger] = t "please_login"
       redirect_to login_url
-    end
   end
 
   def correct_user
-    load_users
+    @user = User.find_by id: params[:id]
     return if @user == current_user
       redirect_to root_url
       flash[:danger] = t "not_permited"

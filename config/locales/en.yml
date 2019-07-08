@@ -42,6 +42,10 @@ en:
       password_reset_expired: "Password reset expired"
       password_has_been_reset: "Password has been reset"
       cant_be_empty: "Cant be empty"
+      passwordreset_title: "Password reset"
+
+    new:
+      forgot_password_title: "Forgot password"
 
   user_mailer:
     account_activation:
@@ -83,6 +87,7 @@ en:
 
     destroy:
       deleted: "User deleted"
+      delete_faild: "Delete failed"
 
   shared:
     error_messages:
