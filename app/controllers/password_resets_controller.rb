@@ -52,6 +52,5 @@ class PasswordResetsController < ApplicationController
     def check_expiration
       return unless @user.password_reset_expired?
       flash[:danger] = t("password_reset_expired")
-      end
     end
 end

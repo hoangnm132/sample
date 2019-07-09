@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: %i(index edit update destroy)
-  before_action :load_users, only: %i(edit show update delete)
+  before_action :load_users, only: %i(edit show update destroy)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, except: %i(destroy)
 
@@ -8,12 +8,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    load_users
-    return if @user
-      flash[:error] = t (".notfound")
-      redirect_to root_path
-  end
+  def show; end
 
   def create
     @user = User.new user_params
@@ -41,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.page(params[:page]).per(5)
+    @users = User.all.page(params[:page]).per(Settings.pages_default)
   end
 
   def admin_user
@@ -49,14 +44,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    load_users
     if @user.destroy
-    flash[:success] = t ".deleted"
-    redirect_to users_url
-  else
-    flash[:error] = t ".delete_failed"
-    redirect_to users_url
-  end
+      flash[:success] = t ".deleted"
+      redirect_to users_url
+    else
+      flash[:error] = t ".delete_failed"
+      redirect_to users_url
+    end
   end
 
   private
@@ -66,6 +60,8 @@ class UsersController < ApplicationController
 
   def load_users
     @user = User.find_by id: params[:id]
+    return if @user
+      redirect_to root_url
   end
 
   def logged_in_user
