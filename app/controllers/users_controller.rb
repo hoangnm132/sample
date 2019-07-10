@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: %i(index edit update destroy)
+  before_action :logged_in_user, except: %i(show new create)
   before_action :load_users, only: %i(edit show update destroy)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, except: %i(destroy)
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.page(params[:page]).per(Settings.pages_default)
+    @users = User.page(params[:page]).per Settings.pages_default
   end
 
   def admin_user

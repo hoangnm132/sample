@@ -1,7 +1,7 @@
 class PasswordResetsController < ApplicationController
-  before_action :get_user, only: %i(:edit, :update)
-  before_action :get_user, :valid_user, only: %i(:edit, :update)
-  before_action :check_expiration, only: %i(:edit, :update)
+  before_action :get_user, only: %i(edit update)
+  before_action :get_user, :valid_user, only: %i(edit update)
+  before_action :check_expiration, only: %i(edit update)
 
   def new; end
 
@@ -34,15 +34,15 @@ class PasswordResetsController < ApplicationController
     end
 
     def update
-    if params[:user][:password].empty?
-      @user.errors.add(:password,t("cant_be_empty"))
-      render :edit
-    elsif @user.update_attributes(user_params)
-      log_in @user
-      flash[:success] = t("password_has_been_reset")
-      redirect_to @user
-    else
-      render :edit
+      if params[:user][:password].empty?
+        @user.errors.add(:password,t("cant_be_empty"))
+        render :edit
+      elsif @user.update_attributes(user_params)
+        log_in @user
+        flash[:success] = t("password_has_been_reset")
+        redirect_to @user
+      else
+        render :edit
     end
 
     def user_params
