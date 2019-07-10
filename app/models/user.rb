@@ -49,7 +49,6 @@ BCrypt::Password.create(string, cost: cost)
 
   def activate
     update(activated: FILL_IN, activated_at: FILL_IN)
-
   end
 
   def send_activation_email

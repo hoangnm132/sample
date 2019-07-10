@@ -46,6 +46,7 @@ en:
 
     new:
       forgot_password_title: "Forgot password"
+      forgot_password: "Forgot password"
 
   user_mailer:
     account_activation:
