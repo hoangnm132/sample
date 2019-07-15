@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: %i[show new create]
-  before_action :load_users, only: %i[edit show update destroy]
-  before_action :correct_user, only: %i[edit update]
-  before_action :admin_user, except: %i[destroy]
+  before_action :logged_in_user, except: %i(show new create)
+  before_action :load_users, only: %i(edit show update destroy)
+  before_action :correct_user, only: %i(edit update)
+  before_action :admin_user, except: %i(destroy)
 
   def new
     @user = User.new
@@ -17,9 +15,9 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       log_in @user
-      flash[:success] = t '.welcome'
+      flash[:success] = t ".welcome"
       UserMailer.account_activation(@user).deliver_now
-      flash[:info] = t '.please_check_email'
+      flash[:info] = t ".please_check_email"
       redirect_to @user
     else
       render :new
@@ -30,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update user_params
-      flash[:success] = t '.successed'
+      flash[:success] = t ".successed"
       redirect_to @user
     else
       render :edit
@@ -47,10 +45,10 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      flash[:success] = t '.deleted'
+      flash[:success] = t ".deleted"
       redirect_to users_url
     else
-      flash[:error] = t '.delete_failed'
+      flash[:error] = t ".delete_failed"
       redirect_to users_url
     end
   end
@@ -72,7 +70,7 @@ class UsersController < ApplicationController
     return if logged_in?
 
     store_location
-    flash[:danger] = t 'please_login'
+    flash[:danger] = t "please_login"
     redirect_to login_url
   end
 
@@ -81,6 +79,6 @@ class UsersController < ApplicationController
     return if @user == current_user
 
     redirect_to root_url
-    flash[:danger] = t 'not_permited'
+    flash[:danger] = t "not_permited"
   end
 end
