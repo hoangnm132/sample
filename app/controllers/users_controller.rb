@@ -2,13 +2,16 @@ class UsersController < ApplicationController
   before_action :logged_in_user, except: %i(show new create)
   before_action :load_users, only: %i(edit show update destroy)
   before_action :correct_user, only: %i(edit update)
-  before_action :admin_user, except: %i(destroy)
+  before_action :admin_user, only: %i(destroy)
 
   def new
     @user = User.new
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.page(params[:page]).per Settings.pages_default
+  end
 
   def create
     @user = User.new user_params
@@ -53,6 +56,20 @@ class UsersController < ApplicationController
     end
   end
 
+   def following
+    @title = "Following"
+    @user  = User.find_by(params[:id])
+    @users = @user.following.page(params[:page]).per Settings.pages_default
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find_by(params[:id])
+    @users = @user.followers.page(params[:page]).per Settings.pages_default
+    render 'show_follow'
+  end
+
   private
 
   def user_params
@@ -64,14 +81,6 @@ class UsersController < ApplicationController
     return if @user
 
     redirect_to root_url
-  end
-
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t "please_login"
-    redirect_to login_url
   end
 
   def correct_user

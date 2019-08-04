@@ -48,6 +48,9 @@ en:
       forgot_password_title: "Forgot password"
       forgot_password: "Forgot password"
 
+    edit:
+      password_reset_title: "Reset password"
+
   user_mailer:
     account_activation:
       account_activated: "Account activated!"
