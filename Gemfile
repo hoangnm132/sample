@@ -18,15 +18,22 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "jquery-rails", "~> 4.3", ">= 4.3.1"
+gem "kaminari", "~> 1.1", ">= 1.1.1"
+gem "kaminari-bootstrap", "~> 3.0", ">= 3.0.1"
+gem 'faker', '~> 1.9', '>= 1.9.6'
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'mini_magick', '~> 4.9', '>= 4.9.5'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "ffaker", "~> 2.11"
 end
 group :development do
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem "better_errors", "~> 2.5", ">= 2.5.1"
 end
 
 group :test do
